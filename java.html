@@ -1,32 +1,21 @@
 <!DOCTYPE html>
 <html>
     <body>
+        <p>How many seconds would you like to set your alarm for?</p>
+        <input id="seconds" value="">
+        <button onclick="countdown()">Click Here</button>
+        <p id="timer"></p>
+
         <script>
-            var randomNumber = Math.floor((Math.random()*10));
-//var randomNumber = 11;
-switch (randomNumber) {
-    case 0:
-    case 1:
-    case 2:
-    console.log(`The random number is ${randomNumber}`);
-    break;
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    Console.log("The random number is between 3 and 7.");
-    break;
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    console.log("The random number is greater than 7.");
-    break;
-    default:
-    console.log("Something went wrong..");
-}
-        
+            var seconds = document.getElementById("seconds").value;
+            function tick () {
+                seconds= seconds  -1;
+                timer.innerHTML= seconds;
+                setTimeout(tick,1000);
+                if(seconds == -1) {
+                    alert("Time's up!");
+                }
+            }
         </script>
-    
     </body>
 </html>
